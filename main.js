@@ -15,58 +15,58 @@ form.addEventListener('submit', e => {
   check.checkPasswordMatch(password, password2);
 });
 
-// show input error
+show input error
 
-// function showError(input, message) {
-//   const formControl = input.parentElement;
-//   formControl.className = 'form-control error';
-//   const small = formControl.querySelector('small');
-//   small.innerText = message;
-// }
+function showError(input, message) {
+  const formControl = input.parentElement;
+  formControl.className = 'form-control error';
+  const small = formControl.querySelector('small');
+  small.innerText = message;
+}
 
-// //show input succsess
-// function showSuccess(input) {
-//   const formControl = input.parentElement;
-//   formControl.className = 'form-control success';
-// }
+//show input succsess
+function showSuccess(input) {
+  const formControl = input.parentElement;
+  formControl.className = 'form-control success';
+}
 
-// function checkEmail(input) {
-//   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//   if (re.test(input.value.trim())) {
-//     showSuccess(input);
-//   } else {
-//     showError(input, 'Email in not valid');
-//   }
-// }
+function checkEmail(input) {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (re.test(input.value.trim())) {
+    showSuccess(input);
+  } else {
+    showError(input, 'Email in not valid');
+  }
+}
 
-// function checkPasswordMatch(input1, input2) {
-//   if (input1.value !== input2.value) {
-//     showError(input2, 'Passwods do not match');
-//   }
-// }
+function checkPasswordMatch(input1, input2) {
+  if (input1.value !== input2.value) {
+    showError(input2, 'Passwods do not match');
+  }
+}
 
-// function checkRequired(inputArr) {
-//   inputArr.forEach(input => {
-//     if (input.value.trim() === '') {
-//       showError(input, `${getFildName(input)} is required`);
-//     } else {
-//       showSuccess(input);
-//     }
-//   });
-// }
+function checkRequired(inputArr) {
+  inputArr.forEach(input => {
+    if (input.value.trim() === '') {
+      showError(input, `${getFildName(input)} is required`);
+    } else {
+      showSuccess(input);
+    }
+  });
+}
 
-// // get each input name
-// function getFildName(input) {
-//   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
-// }
+// get each input name
+function getFildName(input) {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
 
-// function checkLength(input, min, max) {
-//   if (input.value.length < min) {
-//     showError(input, `${getFildName(input)} must be at least ${min}characters`);
-//   } else if (input.value.length > max) {
-//     showError(
-//       input,
-//       `${getFildName(input)} must be less than    ${max} characters`
-//     );
-//   }
-// }
+function checkLength(input, min, max) {
+  if (input.value.length < min) {
+    showError(input, `${getFildName(input)} must be at least ${min}characters`);
+  } else if (input.value.length > max) {
+    showError(
+      input,
+      `${getFildName(input)} must be less than    ${max} characters`
+    );
+  }
+}
